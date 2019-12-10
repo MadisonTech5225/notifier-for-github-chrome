@@ -1,65 +1,79 @@
-# Notifier for GitHub [![Build Status](https://travis-ci.org/sindresorhus/notifier-for-github-chrome.svg?branch=master)](https://travis-ci.org/sindresorhus/notifier-for-github-chrome)
+# <img src="source/icon.png" width="45" align="left"> Notifier for GitHub [![Build Status](https://travis-ci.org/sindresorhus/notifier-for-github.svg?branch=master)](https://travis-ci.org/sindresorhus/notifier-for-github)
 
-> Chrome extension - Displays your GitHub notifications unread count
+[link-cws]: https://chrome.google.com/webstore/detail/notifier-for-github/lmjdlojahmbbcodnpecnjnmlddbkjhnn "Version published on Chrome Web Store"
+[link-amo]: https://addons.mozilla.org/en-US/firefox/addon/notifier-for-github/ "Version published on Mozilla Add-ons"
 
-It checks for new GitHub notifications every minute.
+> Browser extension - Get notified about new GitHub notifications
 
-
-## Highlights
-
-- Desktop notifications
-- Option to show only unread count for issues you're participating in
-- GitHub Enterprise support
-
-*Make sure to add a token in the options.*
-
-![](screenshot.png)
-![](screenshot-webstore2.png)
+Checks for new GitHub notifications every minute, shows the number of notifications you have, and shows desktop notifications as well.
 
 
 ## Install
 
-- [Chrome extension](https://chrome.google.com/webstore/detail/notifier-for-github/lmjdlojahmbbcodnpecnjnmlddbkjhnn)
-- [Opera add-on](https://addons.opera.com/en/extensions/details/github-notifier/)
+- [**Chrome** extension][link-cws] [<img valign="middle" src="https://img.shields.io/chrome-web-store/v/lmjdlojahmbbcodnpecnjnmlddbkjhnn.svg?label=%20">][link-cws]
+- [**Firefox** add-on][link-amo] [<img valign="middle" src="https://img.shields.io/amo/v/notifier-for-github.svg?label=%20">][link-amo]
+- **Opera** extension: Use [this Opera extension](https://addons.opera.com/en/extensions/details/download-chrome-extension-9/) to install the Chrome version.
+
+
+## Highlights
+
+- [Notification count in the toolbar icon.](#notification-count)
+- [Desktop notifications.](#desktop-notifications)
+- [GitHub Enterprise support.](#github-enterprise-support)
+- Click the toolbar icon to go to the GitHub notifications page.
+- Option to show only unread count for issues you're participating in.
+
+*Make sure to add a token in the options.*
+
+
+## Screenshots
+
+### Notification count
+![Screenshot of extension should notification count](media/screenshot.png)
+
+### Options
+![Options page for Notifier for GitHub](media/screenshot-options.png)
 
 
 ## Permissions
 
-Both requested permissions are optional, so you can just decline if you don't want it.
+The extension requests a couple of optional permissions. It works as intended even if you disallow these. Some features work only when you grant these permissions as mentioned below.
 
-#### Tabs permission
+### Tabs permission
 
-The first time you click on the extension icon, it will ask you for access to browser tabs. We need this to know if there is already an opened GitHub notifications page and switch to it if so.
+When you click on the extension icon, the GitHub notifications page is opened in a new tab. The `tabs` permission lets us switch to an existing notifications tab if you already have one opened instead of opening a new one each time you click it.
 
-#### Notifications permission
+This permission also lets us update the notification count immediately after opening a notification. You can find both of these options under the "Tab handling" section in the extension's options page.
 
-If you want to receive desktop notifications for public repositories, you can enable them on extension options page. You will then be asked for the notifications permission.
+### Notifications permission
 
-#### Repos permission
+If you want to receive desktop notifications for public repositories, you can enable them on extension options page. You will then be asked for the `notifications` permission.
 
-If you want to receive (useful) desktop notifications for any private repositories you have, you will be asked for the repo permission as well. This is due to GitHub's current permission scheme, as the only way we can read anything about your private repos is if we have full control over them. If you're concerned with your security in this manner please feel free to not give this permission, just be aware that if you do not enable this permission, clicking on the notification will take you to the notifications home page since we can't get any information about the repo you got the notification for.
+### Repos permission
+
+If you want to receive (useful) desktop notifications for any private repositories you have, you will have to create a GitHub personal access token that has access to the `repo` scope as well. This is due to GitHub's current permission scheme, as the only way we can read anything about your private repos is if we have full control over repositories.
+
+If you're concerned with your security in this manner, please feel free to ignore this scope. Just be aware that if you do not grant this scope, clicking on the notification will take you to the notifications home page, since we can't get any information about the repo you got the notification for.
 
 
-## Desktop notifications
+## Configuration
 
-![](screenshot-notification.png)
+### Desktop notifications
+
+![Notification from Notifier for GitHub extension](media/screenshot-notification.png)
 
 You can opt-in to receive desktop notifications for new notifications on GitHub. The extension checks for new notifications every minute, and displays notifications that arrived after the last check if there are any. Clicking on the notification opens it on GitHub.
 
+### GitHub Enterprise support
 
-## Related
-
-Also available on [Firefox](https://github.com/sindresorhus/notifier-for-github-firefox) and [Safari](https://github.com/sindresorhus/notifier-for-github-safari).
+By default, the extension works for the public [GitHub](https://github.com) site. If you want the extension to show notifications from a GitHub Enterprise server, you have to configure the extension to use the API URL for your GitHub Enterprise server (like `https://github.yourco.com/`).
 
 
 ## Maintainers
 
-- [@YurySolovyov](https://github.com/YurySolovyov) (Yury Solovyov)
-- [@gcochard](https://github.com/gcochard) (Greg Cochard)
-- [@fstoerkle](https://github.com/fstoerkle) (Florian Störkle)
-- [@jacobbearden](https://github.com/jacobbearden) (Jacob Bearden)
+- [Sindre Sorhus](https://github.com/sindresorhus)
+- [Laxman Damera](https://github.com/notlmn)
 
+###### Former
 
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+- [Yury Solovyov](https://github.com/YurySolovyov)
